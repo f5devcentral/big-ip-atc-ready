@@ -1,0 +1,35 @@
+name: bigip-ready
+title: InSpec Profile
+maintainer: The Authors
+copyright: The Authors
+copyright_email: you@example.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0
+supports:
+  platform: os
+inputs:
+- name: bigip_address
+  description: ip address of the BIG-IP to test
+  required: true
+- name: bigip_port
+  description: management port on the BIG-IP
+  value: 443
+  required: false
+- name: user
+  description: user to connect to the BIG-IP as
+  value: admin
+  required: false
+- name: password
+  description: password to connect to the BIG-IP with
+  required: true
+- name: do_version
+  description: required version of declarative onboarding
+  required: false
+- name: as3_version
+  description: required version of application services (AS3)
+  required: false
+- name: ts_version
+  description: required version of telemetry streaming
+  required: false
+  
