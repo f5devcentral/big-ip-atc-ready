@@ -19,6 +19,7 @@ depends:
 ```
 and indicate which controls to use in your control ruby file
 ```ruby
+# run all of the tests
 require_controls 'big-ip-atc-ready' do
   control 'bigip-connectivity'
   control 'bigip-declarative-onboarding'
@@ -30,7 +31,14 @@ require_controls 'big-ip-atc-ready' do
   control 'bigip-licensed'
 end
 ```
-
+```ruby
+# run some of the tests
+require_controls 'big-ip-atc-ready' do
+  control 'bigip-connectivity'
+  control 'bigip-declarative-onboarding'
+  control 'bigip-licensed'
+end
+```
 
 or you can call it at the command line
 ```bash
