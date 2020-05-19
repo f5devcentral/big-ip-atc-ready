@@ -1,8 +1,8 @@
 name: bigip-ready
-title: InSpec Profile
-maintainer: The Authors
-copyright: The Authors
-copyright_email: you@example.com
+title: BIG-IP Automation Toolchain readiness
+maintainer: m.menger@f5.com, c.green@f5.com
+copyright: Mark Menger, Cody Green
+copyright_email: info@f5.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile
 version: 0.1.0
