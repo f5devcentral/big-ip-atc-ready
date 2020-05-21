@@ -69,7 +69,7 @@ end
 
 control "bigip-telemetry-streaming" do
   impact 1.0
-  title "BIG-IP has Application Services"
+  title "BIG-IP has Telemetry Streaming"
   # is the declarative onboarding end point available?
   describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/telemetry/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
@@ -82,7 +82,7 @@ end
 
 control "bigip-telemetry-streaming-version" do
   impact 1.0
-  title "BIG-IP has specified version of Application Services"
+  title "BIG-IP has specified version of Telemetry Streaming"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/telemetry/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
             method: 'GET',
