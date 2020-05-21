@@ -26,12 +26,16 @@ inputs:
   - name: do_version
     description: required version of declarative onboarding
     required: false
+    value: 0
   - name: as3_version
     description: required version of application services (AS3)
     required: false
+    value: 0
   - name: ts_version
     description: required version of telemetry streaming
     required: false
+    value: 0
   - name: fast_version
     description: required version of F5 application services templates
     required: false
+    value: 0
