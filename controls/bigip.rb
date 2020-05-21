@@ -112,7 +112,7 @@ control "bigip-fast" do
   end
 end 
 
-control "bigip-telemetry-streaming-version" do
+control "bigip-fast-version" do
   impact 1.0
   title "BIG-IP has specified version of Application Services"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
