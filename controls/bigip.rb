@@ -114,14 +114,13 @@ end
 
 control "bigip-fast-version" do
   impact 1.0
-  title "BIG-IP has specified version of Application Services"
+  title "BIG-IP has specified version of F5 Application Service Templates"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
             params: {format: 'html'},
             method: 'GET',
             ssl_verify: false).body) do
         its('version') { should eq FAST_VERSION }
-
   end
 end
 
