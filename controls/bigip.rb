@@ -9,6 +9,7 @@ BIGIP_PASSWORD = input('password')
 DO_VERSION     = input('do_version')
 AS3_VERSION    = input('as3_version')
 TS_VERSION     = input('ts_version')
+FAST_VERSION   = input('fast_version')
 
 control "bigip-connectivity" do
   impact 1.0
@@ -93,6 +94,33 @@ control "bigip-telemetry-streaming-version" do
             method: 'GET',
             ssl_verify: false).body) do
         its('version') { should eq TS_VERSION }
+
+  end
+end
+
+control "bigip-fast" do
+  impact 1.0
+  title "BIG-IP has F5 Application Service Templates"
+  # is the declarative onboarding end point available?
+  describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
+            auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
+            params: {format: 'html'},
+            method: 'GET',
+            ssl_verify: false) do
+        its('status') { should cmp 200 }
+        its('headers.Content-Type') { should match 'application/json' }
+  end
+end 
+
+control "bigip-telemetry-streaming-version" do
+  impact 1.0
+  title "BIG-IP has specified version of Application Services"
+  describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
+            auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
+            params: {format: 'html'},
+            method: 'GET',
+            ssl_verify: false).body) do
+        its('version') { should eq FAST_VERSION }
 
   end
 end
