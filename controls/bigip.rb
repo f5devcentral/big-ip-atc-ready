@@ -25,7 +25,6 @@ control "bigip-declarative-onboarding" do
   # is the declarative onboarding end point available?
   describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/declarative-onboarding/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false) do
         its('status') { should cmp 200 }
@@ -38,7 +37,6 @@ control "bigip-declarative-onboarding-version" do
   title "BIG-IP has specified version of Declarative Onboarding"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/declarative-onboarding/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false).body) do
         its([0,'version']) { should eq DO_VERSION }
@@ -51,7 +49,6 @@ control "bigip-application-services" do
   # is the declarative onboarding end point available?
   describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/appsvcs/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false) do
         its('status') { should cmp 200 }
@@ -64,7 +61,6 @@ control "bigip-application-services-version" do
   title "BIG-IP has specified version of Application Services"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/appsvcs/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false).body) do
         its('version') { should eq AS3_VERSION }
@@ -77,7 +73,6 @@ control "bigip-telemetry-streaming" do
   # is the declarative onboarding end point available?
   describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/telemetry/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false) do
         its('status') { should cmp 200 }
@@ -90,7 +85,6 @@ control "bigip-telemetry-streaming-version" do
   title "BIG-IP has specified version of Application Services"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/telemetry/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false).body) do
         its('version') { should eq TS_VERSION }
@@ -104,7 +98,6 @@ control "bigip-fast" do
   # is the declarative onboarding end point available?
   describe http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false) do
         its('status') { should cmp 200 }
@@ -117,7 +110,6 @@ control "bigip-fast-version" do
   title "BIG-IP has specified version of F5 Application Service Templates"
   describe json(content: http("https://#{BIGIP_HOST}:#{BIGIP_PORT}/mgmt/shared/fast/info",
             auth: {user: BIGIP_USER, pass: BIGIP_PASSWORD},
-            params: {format: 'html'},
             method: 'GET',
             ssl_verify: false).body) do
         its('version') { should eq FAST_VERSION }
