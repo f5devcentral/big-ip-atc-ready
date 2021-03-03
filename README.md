@@ -8,6 +8,8 @@ This InSpec profile evaluates the following:
 - version reported by the Application Services (AS3) service ('bigip-application-services-version')
 - availability of the Telemetry Streaming (TS) service ('bigip-telemetry-streaming')
 - version reported by the Telemetry Streaming (TS) service ('bigip-telemetry-streaming-version')
+- availability of the F5 Application Services Templates (FAST) service ('bigip-fast')
+- version reported by the F5 Application Services Templates (FAST) service ('bigip-fast-version')
 - availability of a license on the BIG-IP ('bigip-licensed')
 
 In order to reference the profile you can include it as a dependency in your *inspec.yml* file
@@ -28,6 +30,8 @@ require_controls 'big-ip-atc-ready' do
   control 'bigip-application-services-version'
   control 'bigip-telemetry-streaming'
   control 'bigip-telemetry-streaming-version'
+  control 'bigip-fast'
+  control 'bigip-fast-version'
   control 'bigip-licensed'
 end
 ```
