@@ -46,7 +46,7 @@ end
 
 or you can call it at the command line
 ```bash
-inspec exec https://github.com/F5SolutionsEngineering/big-ip-atc-ready.git
+inspec exec https://github.com/f5devcentral/big-ip-atc-ready.git
 ```
 Please refer to the [InSpec documentation](https://inspec.io) for more elaborate variants on these use cases and further use cases not documented here.
 
