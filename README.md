@@ -16,7 +16,7 @@ In order to reference the profile you can include it as a dependency in your *in
 ```yaml
 depends:
   - name: big-ip-atc-ready
-    git: https://github.com/F5SolutionsEngineering/big-ip-atc-ready
+    git: https://github.com/f5devcentral/big-ip-atc-ready
     branch:  master
 ```
 and indicate which controls to use in your control ruby file
